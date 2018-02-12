@@ -81,8 +81,12 @@ int getSourceImage( void* sourceImagePtr, std::string inputFilename )
     return -1;
     }
 
-  typename ImageType::Pointer* kimg = (typename ImageType::Pointer*)sourceImagePtr;
-  *kimg = readerGPU->GetOutput();
+    auto *kimg = (typename ImageType::Pointer *)sourceImagePtr;
+    *kimg = readerGPU->GetOutput();
+      
+    (*kimg)->DisconnectPipeline();
+    return EXIT_SUCCESS; 
+}            
 
   ( *kimg )->DisconnectPipeline();
   return EXIT_SUCCESS;
@@ -92,9 +96,9 @@ int getSourceImage( void* sourceImagePtr, std::string inputFilename )
 template< typename ImageType >
 int createWhiteImage( void* sourceImagePtr, typename ImageType::SizeType size )
 {
-  typename ImageType::Pointer*   kimg = (typename ImageType::Pointer*)sourceImagePtr;
-  typename ImageType::RegionType region;
-  region.SetSize( size );
+    auto *kimg = (typename ImageType::Pointer *)sourceImagePtr;
+    typename ImageType::RegionType region;
+    region.SetSize( size );
 
   // create
   *kimg = ImageType::New();
