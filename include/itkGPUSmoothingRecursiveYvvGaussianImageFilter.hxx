@@ -30,6 +30,7 @@ GPUSmoothingRecursiveYvvGaussianImageFilter< TInputImage, TOutputImage >
 ::GPUSmoothingRecursiveYvvGaussianImageFilter()
 {
   m_NormalizeAcrossScale = false;
+  m_UseImageSpacing = true;
   otPtr =  dynamic_cast< GPUOutputImage * >( this->ProcessObject::GetOutput(0) );
 
   // NB: We must call SetSigma in order to initialize the smoothing
@@ -81,9 +82,16 @@ GPUSmoothingRecursiveYvvGaussianImageFilter< TInputImage, TOutputImage >
 template< typename TInputImage, typename TOutputImage >
 void
 GPUSmoothingRecursiveYvvGaussianImageFilter< TInputImage, TOutputImage >
-::SetUp(ScalarRealType spacing)
+::SetUp(ScalarRealType spacing, bool useimagespacing)
 {
-  const ScalarRealType sigmad = this->GetSigma() / spacing;
+  ScalarRealType sigmad;
+  if ( useimagespacing == true )
+  {
+      sigmad = this->GetSigma() / spacing;
+  } else
+  {
+      sigmad = this->GetSigma();
+  }
 
   if ( this->GetSigma() >= 0.5 )
     {

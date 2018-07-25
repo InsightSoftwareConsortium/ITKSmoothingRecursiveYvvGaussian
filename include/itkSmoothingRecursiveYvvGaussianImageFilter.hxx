@@ -30,16 +30,19 @@ SmoothingRecursiveYvvGaussianImageFilter< TInputImage, TOutputImage >
 ::SmoothingRecursiveYvvGaussianImageFilter()
 {
   m_NormalizeAcrossScale = false;
+  m_UseImageSpacing = true;
 
   m_FirstSmoothingFilter = FirstGaussianFilterType::New();
   m_FirstSmoothingFilter->SetDirection(ImageDimension - 1);
   m_FirstSmoothingFilter->SetNormalizeAcrossScale(m_NormalizeAcrossScale);
+  m_FirstSmoothingFilter->SetUseImageSpacing(m_UseImageSpacing);
   m_FirstSmoothingFilter->ReleaseDataFlagOn();
 
   for ( unsigned int i = 0; i < ImageDimension - 1; i++ )
     {
     m_SmoothingFilters[i] = InternalGaussianFilterType::New();
     m_SmoothingFilters[i]->SetNormalizeAcrossScale(m_NormalizeAcrossScale);
+    m_SmoothingFilters[i]->SetUseImageSpacing(m_UseImageSpacing);
     m_SmoothingFilters[i]->SetDirection(i);
     m_SmoothingFilters[i]->ReleaseDataFlagOn();
     m_SmoothingFilters[i]->InPlaceOn();

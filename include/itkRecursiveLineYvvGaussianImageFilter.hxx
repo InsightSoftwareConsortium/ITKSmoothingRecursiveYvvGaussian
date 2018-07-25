@@ -32,6 +32,7 @@ RecursiveLineYvvGaussianImageFilter< TInputImage, TOutputImage >
 ::RecursiveLineYvvGaussianImageFilter()
 {
   m_Direction = 0;
+  m_UseImageSpacing = true;
   this->SetNumberOfRequiredOutputs(1);
   this->SetNumberOfRequiredInputs(1);
 
@@ -89,10 +90,15 @@ RecursiveLineYvvGaussianImageFilter< TInputImage, TOutputImage >
 template< typename TInputImage, typename TOutputImage >
 void
 RecursiveLineYvvGaussianImageFilter< TInputImage, TOutputImage >
-::SetUp(ScalarRealType spacing)
+::SetUp(ScalarRealType spacing, bool useimagespacing)
 {
-  const ScalarRealType sigmad = m_Sigma / spacing;
-
+  ScalarRealType sigmad;
+  if ( useimagespacing == true ) {
+    sigmad = m_Sigma / spacing;
+  } else
+  {
+    sigmad = m_Sigma;
+  }
   // Compute q according to 16 in Young et al on Gabor filering
   ScalarRealType q = 0;
 
@@ -292,7 +298,7 @@ RecursiveLineYvvGaussianImageFilter< TInputImage, TOutputImage >
   const typename InputImageType::SpacingType & pixelSize = inputImage->GetSpacing();
 
   this->m_ImageRegionSplitter->SetDirection(m_Direction);
-  this->SetUp(pixelSize[m_Direction]);
+  this->SetUp(pixelSize[m_Direction], m_UseImageSpacing);
 
   RegionType region = outputImage->GetRequestedRegion();
 

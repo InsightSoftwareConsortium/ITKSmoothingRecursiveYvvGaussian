@@ -127,7 +127,7 @@ public:
 
   itkGetConstMacro(NormalizeAcrossScale, bool);
 
-  virtual void SetUp(ScalarRealType spacing);
+  virtual void SetUp(ScalarRealType spacing, bool useimagespacing);
 
 #ifdef ITK_USE_CONCEPT_CHECKING
   /** Begin concept checking */
@@ -181,6 +181,7 @@ private:
 
   /** Normalize the image across scale space */
   bool m_NormalizeAcrossScale;
+  bool m_UseImageSpacing;
 
   int m_FilterGPUKernelHandle;
   typename GPUInputImage::Pointer inPtr;

@@ -130,6 +130,22 @@ public:
   SigmaArrayType GetSigmaArray() const;
   ScalarRealType GetSigma() const;
 
+  /** Use the image spacing information in calculations. Use this option if you
+   *  want to specify Gaussian variance in real world units.  Default is
+   *   ImageSpacingOn. */
+  void SetUseImageSpacingOn()
+  { this->SetUseImageSpacing(true); }
+
+  /** Ignore the image spacing. Use this option if you want to specify Gaussian
+      variance in pixels.  Default is ImageSpacingOn. */
+  void SetUseImageSpacingOff()
+  { this->SetUseImageSpacing(false); }
+
+  /** Set/Get whether or not the filter will use the spacing of the input
+      image in its calculations */
+  itkSetMacro(UseImageSpacing, bool);
+  itkGetConstMacro(UseImageSpacing, bool);
+
   /** Define which normalization factor will be used for the Gaussian */
   void SetNormalizeAcrossScale(bool normalizeInScaleSpace);
   itkGetConstMacro(NormalizeAcrossScale, bool);
@@ -169,6 +185,8 @@ private:
 
   /** Normalize the image across scale space */
   bool m_NormalizeAcrossScale;
+
+  bool m_UseImageSpacing;
 
   /** Standard deviation of the gaussian used for smoothing */
   SigmaArrayType m_Sigma;

@@ -116,6 +116,9 @@ public:
   itkSetMacro(NormalizeAcrossScale, bool);
   itkGetConstMacro(NormalizeAcrossScale, bool);
 
+  itkSetMacro(UseImageSpacing, bool);
+  itkGetConstMacro(UseImageSpacing, bool);
+
   /** Set/Get the Sigma, measured in world coordinates, of the Gaussian
    * kernel.  The default is 1.0.  */
   itkGetConstMacro(Sigma, ScalarRealType);
@@ -146,7 +149,7 @@ protected:
    * Typically it can be used to approximate a Gaussian or one of its
    * derivatives. Parameter is the spacing along the dimension to
    * filter. */
-  virtual void SetUp(ScalarRealType spacing);
+  virtual void SetUp(ScalarRealType spacing, bool useimagespacing);
 
   /** Apply the Recursive Filter to an array of data.  This method is called
    * for each line of the volume. Parameter "scratch" is a scratch
@@ -174,6 +177,8 @@ private:
 
   /** Sigma of the gaussian kernel. */
   ScalarRealType m_Sigma;
+
+  bool m_UseImageSpacing;
 
   /** Normalize the image across scale space */
   bool                                  m_NormalizeAcrossScale;
