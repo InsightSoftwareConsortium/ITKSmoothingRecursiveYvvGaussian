@@ -25,9 +25,9 @@
 #endif
 
 #ifdef WITH_DOUBLE
-typedef double PixelType;
+    using PixelType = double;
 #else
-typedef float PixelType;
+    using PixelType = float;
 #endif
 
 #define die( error_msg )                                                                                 \
@@ -96,9 +96,9 @@ int itkYvvWhiteImageTest( int argc, char* argv[] )
     }
   else if ( dim == 3 )
     {
-    typedef itk::Image< PixelType, 3 > ImageType;
-    ImageType::SizeType                size3D = { { size[0], size[1], size[2] } };
-    result = testWhite< ImageType >( size3D, sigma, &timeCollector, ntests );
+    using ImageType = itk::Image< PixelType, 3 >;
+    ImageType::SizeType size3D = { {size[0],size[1], size[2]} };
+    result = testWhite< ImageType >(size3D, sigma, &timeCollector, ntests);
     }
   else
     {
