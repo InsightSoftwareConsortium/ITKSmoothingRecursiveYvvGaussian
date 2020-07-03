@@ -51,6 +51,6 @@ setup(
     keywords='ITK InsightToolkit Smoothing',
     url=r'https://github.com/InsightSoftwareConsortium/ITKSmoothingRecursiveYvvGaussianFilter',
     install_requires=[
-        r'itk'
+        r'itk>=5.1.1'
     ]
     )
