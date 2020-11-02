@@ -1,6 +1,8 @@
 ITKSmoothingRecursiveYvvGaussianFilter
 ======================================
 
+.. image:: https://github.com/InsightSoftwareConsortium/ITKSmoothingRecursiveYvvGaussianFilter/workflows/Build,%20test,%20package/badge.svg
+
 .. |CircleCI| image:: https://circleci.com/gh/InsightSoftwareConsortium/ITKSmoothingRecursiveYvvGaussianFilter.svg?style=shield
     :target: https://circleci.com/gh/InsightSoftwareConsortium/ITKSmoothingRecursiveYvvGaussianFilter
 
