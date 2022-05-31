@@ -27,7 +27,7 @@ setup(
                      'Please refer to:\n'
                      'Vidal-Migallon I., Commowick O., Pennec X., Dauguet J., Vercauteren T.,'
                      '"GPU and CPU implementation of Young - Van Vliet\'s Recursive Gaussian Smoothing Filter", '
-                     'Insight Journal, January-December 2013, http://hdl.handle.net/10380/3425.',
+                     'Insight Journal, January-December 2013, https://hdl.handle.net/10380/3425.',
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
