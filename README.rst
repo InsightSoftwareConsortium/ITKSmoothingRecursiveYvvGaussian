@@ -7,17 +7,17 @@ ITKSmoothingRecursiveYvvGaussianFilter
 Overview
 --------
 
-This is a module for the `Insight Toolkit (ITK) <http://itk.org>`_ that
+This is a module for the `Insight Toolkit (ITK) <https://itk.org>`_ that
 implements the Young & Van Vliet recursive Gaussian smoothing filter for GPU
 (OpenCL) and CPU.
 
-For more information, see the `Insight Journal article <http://hdl.handle.net/10380/3425>`_::
+For more information, see the `Insight Journal article <https://hdl.handle.net/10380/3425>`_::
 
   Vidal-Migallon I., Commowick O., Pennec X., Dauguet J., Vercauteren T.
   GPU and CPU implementation of Young - Van Vliet's Recursive Gaussian Smoothing Filter
   The Insight Journal. January-December. 2013.
-  http://hdl.handle.net/10380/3425
-  http://www.insight-journal.org/browse/publication/896
+  https://hdl.handle.net/10380/3425
+  https://www.insight-journal.org/browse/publication/896
 
 
 Installation
