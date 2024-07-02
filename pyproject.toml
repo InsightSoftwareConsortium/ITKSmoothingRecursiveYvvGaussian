@@ -4,7 +4,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "itk-smoothingrecursiveyvvgaussianfilter"
-version = "1.0.0"
+version = "1.0.1"
 description = "Young & Van Vliet recursive Gaussian smoothing filter for GPU (OpenCL) and CPU"
 readme = "README.rst"
 license = {file = "LICENSE"}
