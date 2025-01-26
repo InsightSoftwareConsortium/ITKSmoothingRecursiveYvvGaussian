@@ -152,7 +152,7 @@ protected:
    * the pipeline execution model.
    * \sa ImageToImageFilter::GenerateInputRequestedRegion() */
   void
-  GenerateInputRequestedRegion() ITK_NOEXCEPT override;
+  GenerateInputRequestedRegion() noexcept override;
 
   // Override since the filter produces the entire dataset
   void
