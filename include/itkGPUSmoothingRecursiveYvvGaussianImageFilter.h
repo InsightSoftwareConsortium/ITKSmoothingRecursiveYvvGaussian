@@ -86,7 +86,7 @@ public:
   using GPUOutputImage = typename itk::GPUTraits<TOutputImage>::Type;
 
   /** Runtime information support. */
-  itkTypeMacro(GPUSmoothingRecursiveYvvGaussianImageFilter, GPUImageToImageFilter);
+  itkOverrideGetNameOfClassMacro(GPUSmoothingRecursiveYvvGaussianImageFilter);
 
   /** Image dimension. */
   static constexpr unsigned int ImageDimension = TInputImage::ImageDimension;

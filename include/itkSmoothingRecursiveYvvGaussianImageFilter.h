@@ -68,7 +68,7 @@ public:
 #endif
 
   /** Runtime information support. */
-  itkTypeMacro(SmoothingRecursiveYvvGaussianImageFilter, InPlaceImageFilter);
+  itkOverrideGetNameOfClassMacro(SmoothingRecursiveYvvGaussianImageFilter);
 
   /** Image dimension. */
   static constexpr unsigned int ImageDimension = TInputImage::ImageDimension;
