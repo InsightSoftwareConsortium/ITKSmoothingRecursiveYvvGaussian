@@ -30,9 +30,9 @@ using PixelType = double;
 using PixelType = float;
 #endif
 
-#define die(error_msg)                                                                                                 \
-  std::cerr << "Error: " << error_msg << std::endl;                                                                    \
-  std::cerr << "Usage: " << argv[0] << " ndimension sigma num_runs width [height] [depth]" << std::endl;               \
+#define die(error_msg)                                                                                   \
+  std::cerr << "Error: " << error_msg << std::endl;                                                      \
+  std::cerr << "Usage: " << argv[0] << " ndimension sigma num_runs width [height] [depth]" << std::endl; \
   return EXIT_FAILURE;
 
 int
